@@ -1,6 +1,6 @@
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { useState } from 'react';
-import { Link, animateScroll as scroll } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
   const specialChar = '/>';

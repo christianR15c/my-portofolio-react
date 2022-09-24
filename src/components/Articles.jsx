@@ -99,7 +99,7 @@ const Articles = () => {
     setIsLoading(true);
     setBlogs(blogsData);
     setIsLoading(false);
-  });
+  }, [isLoading, blogs]);
 
   // Get current blogs
   const indexOfLastBlog = currentPage * blogsPerPage;
