@@ -12,10 +12,10 @@ const ShowCase = () => {
           <h1 className="text-4xl lg:text-5xl sm:text-3xl font-bold text-indigo-900 ">
             Full-stack Software Engineer
           </h1>
-          <p className="text-2xl sm:text-2xl lg:text-3xl my-6">
+          <p className="text-2xl sm:text-2xl lg:text-3xl my-6 md:text-start">
             My aim is to transform Africa through technology, by providing
-            working systems using: JavaScript, React, Redux, NodeJs, MongoDB,
-            PostgreSQL, Docker
+            working systems using: JavaScript, React, Angular, NuxtJs, NextJs, Redux, NodeJs, GraphQL, MongoDB,
+            PostgreSQL, Docker and AWS
           </p>
           <button className="w-[80%] h-[40px] my-5 sm:w-[60%]">
             Get Started
