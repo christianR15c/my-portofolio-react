@@ -36,7 +36,7 @@ const Blog = ({ blogs, loading }) => {
               <div className="flex md:justify-start justify-center">
                 <img
                   src={blog.image}
-                  alt="blog picture"
+                  alt="blog"
                   className="sm:w-full w-[70%] h-64"
                 />
               </div>
