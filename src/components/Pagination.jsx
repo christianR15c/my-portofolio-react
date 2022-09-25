@@ -14,16 +14,16 @@ const Pagination = ({ blogsPerPage, totalBlogs, paginate }) => {
         {blogsPerPage >= totalBlogs
           ? null
           : pageNumbers.map((number, index) => (
-              <Link key={index} className="m-1 py-6 px-2 ">
-                <a
-                  onClick={() => paginate(number)}
-                  href="#"
-                  className="cursor-pointer border-2 border-white p-2  "
-                >
-                  {number}
-                </a>
-              </Link>
-            ))}
+            <Link key={index} className="m-1 py-6 px-2 ">
+              <a
+                onClick={() => paginate(number)}
+                href="www.google.com"
+                className="cursor-pointer border-2 border-white p-2  "
+              >
+                {number}
+              </a>
+            </Link>
+          ))}
       </ul>
     </div>
   );
