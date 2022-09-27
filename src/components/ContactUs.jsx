@@ -1,77 +1,107 @@
-import { PhoneIcon, ArrowRightIcon } from '@heroicons/react/outline';
-import { ChipIcon, SupportIcon } from '@heroicons/react/solid';
-import comp1 from '../images/comp1.jpg';
+import React, { useRef } from 'react'
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const ContactUs = () => {
-  return (
-    <div name='contact us' className="w-full mt-24">
-      <div className="w-full h-[550px] sm:h-[650px] bg-gray-800/90 absolute">
-        <img
-          className="w-full h-full object-cover mix-blend-overlay"
-          src={comp1}
-          alt="/"
-        />
-      </div>
-      <div className="max-w-[1240px] mx-auto text-white relative">
-        <div className="text-center py-12 px-5">
-          <h1 className="py-8 text text-slate-300 uppercase">Support</h1>
-          <h3 className="text-4xl pb-7 font-bold">
-            Get Support From the right Software Developer
-          </h3>
-          <p className="text-gray-300 text-xl py-2">
-            Have you got any unfinished products? and you've been looking for a top-notch programmer to complete your project?
-          </p>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 relative gap-x-8 gap-y-16 px-4 pt-12 sm:pt-20 text-black">
-          <div className="bg-white rounded-lg shadow-2xl">
-            <div className="p-8">
-              <PhoneIcon className="w-16 p-4 bg-indigo-700 rounded-lg text-white mt-[-4rem]" />
-              <h3 className="my-4 font-bold text-2xl">Front-end</h3>
-              <p className="text-gray-600 text-xl">
-                We create the site's layout, to determines how navigation should look like, and how to present the site, do you want some to ensure the the appearance and layout of the site or application is easy to navigate and intuitive for the user.
-              </p>
-            </div>
-            <div className="px-8 py-2 text-xl bg-slate-100 rounded-b-lg">
-              <p className="flex text-indigo-700">
-                Contact Us
-                <ArrowRightIcon className="w-5 text-indigo-700 ml-3" />
-              </p>
-            </div>
-          </div>
-          <div className="bg-white rounded-lg shadow-2xl">
-            <div className="p-8">
-              <SupportIcon className="w-16 p-4 bg-indigo-700 rounded-lg text-white mt-[-4rem]" />
-              <h3 className="my-4 font-bold text-2xl">Back-end</h3>
-              <p className="text-gray-600 text-xl">
-                We ensure data storage, security, and other server-side functions, we ensure the website performs correctly, focusing on databases, back-end logic, application programming interface (APIs), architecture, and servers.
-              </p>
-            </div>
-            <div className="px-8 py-2 text-xl bg-slate-100 rounded-b-lg">
-              <p className="flex text-indigo-700">
-                Contact Us
-                <ArrowRightIcon className="w-5 text-indigo-700 ml-3" />
-              </p>
-            </div>
-          </div>
-          <div className="bg-white rounded-lg shadow-2xl">
-            <div className="p-8">
-              <ChipIcon className="w-16 p-4 bg-indigo-700 rounded-lg text-white mt-[-4rem]" />
-              <h3 className="my-4 font-bold text-2xl">Full-stack</h3>
-              <p className="text-gray-600 text-xl">
-                We work on both front-end and back-end development processes. We design, develop, and maintain fully-fledged and functioning platforms with databases or servers. We build an entire system from scratch.
-              </p>
-            </div>
-            <div className="px-8 py-2 text-xl bg-slate-100 rounded-b-lg">
-              <p className="flex text-indigo-700">
-                Contact Us
-                <ArrowRightIcon className="w-5 text-indigo-700 ml-3" />
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+    const form = useRef();
 
-export default ContactUs;
+    // const [result, setResult] = useState()
+    const successNotify = () => toast.success('Your message was successfully sent!');
+    const notify = () => toast.error('Message not sent, please try again later.');
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_r8hfl4h', 'template_r3sw8lj', form.current, 'XmlYJbJCXXfUrcfUU')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                notify()
+                console.log(error.text);
+            });
+        successNotify()
+        e.target.reset()
+        // setResult(true)
+    };
+
+
+
+    return (
+        <div className="container px-5 py-24 h-max rounded-lg bg-slate-50 mt-20 mx-auto shadow-2xl">
+            <div className="flex flex-col text-center w-full mb-12">
+                <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900">
+                    Contact Us
+                </h1>
+                <p className="lg:w-2/3 mx-auto leading-relaxed text-xl text-gray-700">
+                    Please don't hesitate to contact us on anything
+                </p>
+            </div>
+            <div className="lg:w-1/2 md:w-2/3 mx-auto">
+                <form ref={form} onSubmit={sendEmail} className="flex flex-wrap -m-2">
+                    <div className="p-2 sm:w-1/2 w-full">
+                        <div className="relative">
+                            <label for="name" className="leading-7 text-sm text-gray-600">
+                                Name
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            />
+                        </div>
+                    </div>
+                    <div className="p-2 sm:w-1/2 w-full">
+                        <div className="relative">
+                            <label
+                                for="email"
+                                className="leading-7 text-sm text-gray-600"
+                            >
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            />
+                        </div>
+                    </div>
+                    <div className="p-2 w-full">
+                        <div className="relative">
+                            <label
+                                for="message"
+                                className="leading-7 text-sm text-gray-600"
+                            >
+                                Message
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                required
+                                className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div className="p-2 w-full flex flex-col">
+                        <button type="submit" value="Send" className="md:w-[30%] h-[40px] bg-indigo-700 w-full mx-auto md:mb-0 mb-8">
+                            Send
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+            <div>
+                <Toaster
+                    position="top-center"
+                    reverseOrder={false}
+                />
+            </div>
+        </div>
+    )
+}
+
+export default ContactUs

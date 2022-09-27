@@ -3,7 +3,7 @@ const About = () => {
     <div name='about' className="w-full my-32 md:px-0 px-4">
       <div className="max-w-[1240px] mx-auto">
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold">Trusted Developer</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">Trusted Engineer</h2>
           <p className="text-xl md:text-4xl py-6 text-gray-500">
             I use various source debuggers and visual development environments to modify, write, and debug software for client applications. I document and test client software and write code to create applications that either stand alone or boost access to servers and services.
           </p>
