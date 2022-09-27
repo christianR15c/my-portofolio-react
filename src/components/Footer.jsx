@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
 
 import {
   FaFacebook,
@@ -9,6 +11,27 @@ import {
 } from 'react-icons/fa';
 
 const Footer = () => {
+
+  const form = useRef();
+
+  const successNotify = () => toast.success('Your message was successfully sent!');
+  const notify = () => toast.error('Message not sent, please try again later.');
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_r8hfl4h', 'template_7cbcksc', form.current, 'XmlYJbJCXXfUrcfUU')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        notify()
+        console.log(error.text);
+      });
+    successNotify()
+    e.target.reset()
+    // setResult(true)
+  };
+
   return (
     <div name="footer" className="w-full bg-slate-900 text-gray-300 py-2 mt-20">
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-6 grid-cols-2 border-b-2 border-x-gray-600 py-8">
@@ -55,13 +78,14 @@ const Footer = () => {
           <p className="py-4">
             The latest news, articles, and resources, sent to you.
           </p>
-          <form className="flex flex-col sm:flex-row" action="submit">
+          <form ref={form} className="flex flex-col sm:flex-row" action="submit" onSubmit={sendEmail}>
             <input
               className="w-full p-2 mr-4 rounded-md mb-4"
               type="email"
+              name='email'
               placeholder="Enter email ... "
             />
-            <button className="p-2 mb-4">Subscribe</button>
+            <button className="p-2 mb-4" type="submit" value="Send">Subscribe</button>
           </form>
         </div>
       </div>
@@ -75,6 +99,12 @@ const Footer = () => {
           <FaTwitch />
           <FaGithub />
         </div>
+      </div>
+      <div>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
       </div>
     </div>
   );
