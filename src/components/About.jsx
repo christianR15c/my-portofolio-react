@@ -1,15 +1,13 @@
 const About = () => {
   return (
-    <div name='about' className="w-full my-32">
+    <div name='about' className="w-full my-32 md:px-0 px-4">
       <div className="max-w-[1240px] mx-auto">
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-bold">Trusted Developer</h2>
-          <p className="text-2xl md:text-4xl py-6 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
-            mollitia dolor ex deserunt dolores voluptatibus consequuntur id
-            fugit odit dolore, expedita doloribus molestias iste voluptas,
-            sapiente illo qui tempore est?
+          <p className="text-xl md:text-4xl py-6 text-gray-500">
+            I use various source debuggers and visual development environments to modify, write, and debug software for client applications. I document and test client software and write code to create applications that either stand alone or boost access to servers and services.
           </p>
+
         </div>
         <div className="grid md:grid-cols-3 gap-1 px-2 text-center md:max-w-[1240px]">
           <div className="border py-8 rounded-xl shadow-xl">

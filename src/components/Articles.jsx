@@ -115,7 +115,7 @@ const Articles = () => {
     <div name="articles" className="w-full bg-slate-200 my-20">
       <div className="max-w-[1240px] py-4 md:mx-auto mx-8">
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold">Trusted Developer</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">Some of my Projects</h2>
           <p className="text-2xl md:text-4xl py-6 text-gray-500">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
             mollitia dolor ex deserunt dolores voluptatibus consequuntur id

@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <div name="footer" className="w-full bg-slate-900 text-gray-300 py-2">
+    <div name="footer" className="w-full bg-slate-900 text-gray-300 py-2 mt-20">
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-6 grid-cols-2 border-b-2 border-x-gray-600 py-8">
         <div>
           <h6 className="font-bold uppercase pt-2 pl-5">solutions</h6>
