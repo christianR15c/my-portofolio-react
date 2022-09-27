@@ -11,7 +11,7 @@ const Navbar = () => {
   const handleClose = (e) => setDropDownMenu(!dropDownMenu);
 
   return (
-    <div className="w-screen h-[100px] z-10  bg-slate-200 fixed drop-shadow-lg">
+    <div className="w-screen h-[100px] fixed  bg-slate-200 drop-shadow-lg">
       <div className="px-[10%] flex justify-between items-center w-full h-full">
         <div className="flex items-center w-full justify-between">
           <h1 className="text-3xl text-orange-500 font-italic mr-4 sm:text-[32px] lg:text-[40px] ">
