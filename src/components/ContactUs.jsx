@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
+import { Link } from 'react-scroll';
 
 
 const ContactUs = () => {
@@ -28,7 +29,7 @@ const ContactUs = () => {
 
 
     return (
-        <div className="container px-5 py-24 h-max rounded-lg bg-slate-50 mt-20 mx-auto shadow-2xl">
+        <div name='contact us' className="container px-5 py-8 h-max rounded-lg bg-slate-50 mt-20 mx-auto shadow-2xl">
             <div className="flex flex-col text-center w-full mb-12">
                 <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900">
                     Contact Us
