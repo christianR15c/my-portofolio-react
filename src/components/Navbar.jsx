@@ -1,20 +1,25 @@
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-scroll';
 
 const Navbar = () => {
   const specialChar = '/>';
+  const navigate = useNavigate()
 
   const [dropDownMenu, setDropDownMenu] = useState(false);
 
   const handleClick = (e) => setDropDownMenu(!dropDownMenu);
   const handleClose = (e) => setDropDownMenu(!dropDownMenu);
+  const navigateToLoginPage = () => {
+    navigate('/login');
+  }
 
   return (
-    <div className="w-screen h-[100px] fixed bg-slate-200 drop-shadow-lg z-20">
-      <div className="px-[10%] flex justify-between items-center w-full h-full">
+    <div className="w-screen md:h-[100px] h-[60px] fixed bg-slate-200 drop-shadow-lg z-20">
+      <div className="md:px-[10%] px-[3%] flex justify-between items-center w-full h-full">
         <div className="flex items-center w-full justify-between">
-          <h1 className="text-3xl text-orange-500 font-italic mr-4 sm:text-[32px] lg:text-[40px] ">
+          <h1 className="sm:text-3xl text-xl text-orange-500 font-italic mr-4 sm:text-[32px] lg:text-[40px] ">
             chris
             <span className=" text-regal-blue">
               Code
@@ -43,23 +48,23 @@ const Navbar = () => {
                   Contact Us
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="articles" smooth={true} offset={-120} duration={500}>
                   Articles
                 </Link>
-              </li>
+              </li> */}
             </ul>
             <div className="hidden md:flex h-[30px]">
-              <button className="border-name text-slate-700 bg-transparent w-[90px] ">
+              <button onClick={navigateToLoginPage} className="border-name text-slate-700 bg-transparent w-[90px] ">
                 Sign In
               </button>
             </div>
           </div>
           <div className="md:hidden" onClick={handleClick}>
             {!dropDownMenu ? (
-              <MenuIcon className="w-8 text-orange-500 mr-6 cursor-pointer" />
+              <MenuIcon className="sm:w-8 w-5 text-orange-500 cursor-pointer" />
             ) : (
-              <XIcon className="w-8 text-orange-500 mr-6 cursor-pointer" />
+              <XIcon className="w-8 text-orange-500 cursor-pointer" />
             )}
           </div>
         </div>
@@ -88,7 +93,7 @@ const Navbar = () => {
             About
           </Link>
         </li>
-        <li className="border-y-2 border-zinc-300 w-full pl-9">
+        {/* <li className="border-y-2 border-zinc-300 w-full pl-9">
           <Link
             onClick={handleClose}
             to="articles"
@@ -98,7 +103,7 @@ const Navbar = () => {
           >
             Articles
           </Link>
-        </li>
+        </li> */}
         <li className="border-y-2 border-zinc-300 w-full pl-9">
           <Link
             onClick={handleClose}
@@ -110,7 +115,7 @@ const Navbar = () => {
             Contact Us
           </Link>
         </li>
-        <li className="border-y-2 border-zinc-300 w-full pl-9">
+        {/* <li className="border-y-2 border-zinc-300 w-full pl-9">
           <Link
             onClick={handleClose}
             to="services"
@@ -120,9 +125,9 @@ const Navbar = () => {
           >
             Services
           </Link>
-        </li>
+        </li> */}
         <div className="flex my-5 mx-9">
-          <button className="h-[40px] w-full">Sign In</button>
+          <button onClick={navigateToLoginPage} className="h-[40px] w-full">Sign In</button>
         </div>
       </ul>
     </div>
